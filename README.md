@@ -1,6 +1,7 @@
 # chanllenge_php
 
 Objectivos
+[X] - instalar o framework
 [ ] - imagens docker
 [ ] - autenticacao
 [ ] - CRUD Users
