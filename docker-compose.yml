@@ -1,0 +1,33 @@
+version: '3.7'
+
+volumes:
+    chanllenge_php-db:
+        external: true
+
+networks:
+    chanllenge_php-networks:
+        external: true
+
+services:
+    chanllenge_php-app:
+        image: ambientum/php:8.0-nginx
+        volumes:
+            - .:/var/www/app
+        ports:
+            - ${SERVER_PORT}:8080
+        networks:
+            - chanllenge_php-networks
+
+    chanllenge_php-db:
+        image: mysql:5.7
+        volumes:
+            - chanllenge_php-db:/var/lib/mysql
+        ports:
+            - 33061:3306
+        environment:
+            - "MYSQL_ALLOW_EMPTY_PASSWORD=true"
+            - "MYSQL_DATABASE=database"
+            - "MYSQL_USER=user"
+            - "MYSQL_PASSWORD=secret"
+        networks:
+            - chanllenge_php-networks
