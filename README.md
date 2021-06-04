@@ -4,18 +4,18 @@ Objectivos
 - [X] - instalar o framework
 - [X] - imagens docker
 - [ ] - autenticacao
-- [ ] - CRUD Users
+- [X] - CRUD Users
     - Nome completo
     - CPF/CNPJ
     - E-Mail
     - Senha
     - apenas um com mesmo cpf/cnpj ou e-mail
     - tipos de usuario (usuario normal e lojistas)
-        - [ ] - CREATE User
-        - [ ] - UPDATE User
-        - [ ] - SHOW User
-        - [ ] - LIST Users
-        - [ ] - DELETE User
+        - [X] - CREATE User
+        - [X] - UPDATE User
+        - [X] - SHOW User
+        - [X] - LIST Users
+        - [X] - DELETE User
 - [ ] - Trsnferencias
     - usuario deve ter saldo na conta para fazer isso
     - lojistas nao enviam dinheiro apenas recebem
@@ -58,17 +58,27 @@ Objectivos
 
 Com o seu terminal aberto na diretório do projeto execute:
 
-1. Criar o Network docker na sua maquina
+1. Copie o arquivo .env-exemple
+```
+cp .env.example .env 
+```
+
+2. Criar o Network docker na sua maquina
 ```
 docker network create chanllenge_php-networks
 ```
 
-2. Criar o volume docker na sua maquina
+3. Criar o volume docker na sua maquina
 ```
 docker volume create --name=chanllenge_php-db
 ```
 
-3. Inicar os containers
+4. Inicar os containers
 ```
 docker-compose up -d
+```
+
+5. Rodar as migrates
+```
+docker-compose run chanllenge_php-app php artisan migrate
 ```

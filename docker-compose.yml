@@ -11,15 +11,19 @@ networks:
 services:
     chanllenge_php-app:
         image: ambientum/php:8.0-nginx
+        container_name: chanllenge_php-app
         volumes:
             - .:/var/www/app
         ports:
-            - ${SERVER_PORT}:8080
+            - ${SERVER_PORT_APP}:8080
+        links:
+            - chanllenge_php-db
         networks:
             - chanllenge_php-networks
 
     chanllenge_php-db:
         image: mysql:5.7
+        container_name: chanllenge_php-db
         volumes:
             - chanllenge_php-db:/var/lib/mysql
         ports:
