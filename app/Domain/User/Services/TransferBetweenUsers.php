@@ -3,9 +3,17 @@
 namespace App\Domain\User\Services;
 
 use App\Domain\User\User;
+use App\Infrastructure\PaymentAPI;
 
 class TransferBetweenUsers
 {
+    private $paymentAPI;
+
+    public function __construct()
+    {
+        $this->paymentAPI = new PaymentAPI();
+    }
+
     public function __invoke(array $data): array
     {
         $payer = $this->getUser($data['payer']);
@@ -18,6 +26,10 @@ class TransferBetweenUsers
 
         if (!$this->validateValueInWallet($payer, $value)) {
             return [false, 'Valor insuficiente na conta '];
+        }
+
+        if (!$this->paymentAPI->vapidation()) {
+            return [false, 'Transação não autorizada'];
         }
 
         $this->addValueInWallet($payee, $value);
