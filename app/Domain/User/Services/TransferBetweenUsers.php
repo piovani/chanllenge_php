@@ -3,15 +3,18 @@
 namespace App\Domain\User\Services;
 
 use App\Domain\User\User;
+use App\Infrastructure\NotificationAPI;
 use App\Infrastructure\PaymentAPI;
 
 class TransferBetweenUsers
 {
     private $paymentAPI;
+    private $notificationAPI;
 
     public function __construct()
     {
         $this->paymentAPI = new PaymentAPI();
+        $this->notificationAPI = new NotificationAPI();
     }
 
     public function __invoke(array $data): array
@@ -34,6 +37,8 @@ class TransferBetweenUsers
 
         $this->addValueInWallet($payee, $value);
         $this->subValueInWallet($payer, $value);
+
+        $this->notificationAPI->notification($payee);
 
         return [true, 'Operação realizada com sucesso'];
     }
