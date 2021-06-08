@@ -3,7 +3,6 @@
 Objectivos
 - [X] - instalar o framework
 - [X] - imagens docker
-- [ ] - autenticacao
 - [X] - CRUD Users
     - Nome completo
     - CPF/CNPJ
@@ -16,7 +15,7 @@ Objectivos
         - [X] - SHOW User
         - [X] - LIST Users
         - [X] - DELETE User
-- [ ] - Trsnferencias
+- [X] - Trsnferencias
     - usuario deve ter saldo na conta para fazer isso
     - lojistas nao enviam dinheiro apenas recebem
     - validar com api externa https://run.mocky.io/v3/8fafdd68-a090-496f-8c9a-3442cf30dae6
@@ -28,30 +27,30 @@ Objectivos
             "payer" : 4,
             "payee" : 15
         }
-- [ ] - script de avaliacao automatizado
+- [X] - script de avaliacao automatizado
     - docker run -it --rm -v $(pwd):/project -w /project jakzal/phpqa phpmd app text cleancode,codesize,controversial,design,naming,unusedcode
-- [ ] - testes
-    - [ ] - integracao
-    - [ ] - unitarios
-- [ ] - porposta de melhoria para a arquitetura
+- [X] - testes
+    - [X] - integracao
+    - [X] - unitarios
+- [X] - porposta de melhoria para a arquitetura
 
 ## REVISAO
 
-- [ ] - documentação
-- [ ] - arquitetura
-- [ ] - codigo limpo
-- [ ] - padroes
-    - [ ] - PSRs
-    - [ ] - patterns
-    - [ ] - SOLID
-- [ ] - solucao de dominio
-- [ ] - modelagem de dados
-- [ ] - manutencao do codigo
-- [ ] - tratamento de erros
-- [ ] - segurancao
-- [ ] - camadas
-    - [ ] - services
-    - [ ] - repositories
+- [X] - documentação
+- [X] - arquitetura
+- [X] - codigo limpo
+- [X] - padroes
+    - [X] - PSRs
+    - [X] - patterns
+    - [X] - SOLID
+- [X] - solucao de dominio
+- [X] - modelagem de dados
+- [X] - manutencao do codigo
+- [X] - tratamento de erros
+- [X] - segurancao
+- [X] - camadas
+    - [X] - services
+    - [X] - repositories
 
 
 ## Instalação e Inicialização do Projeto
@@ -82,3 +81,14 @@ docker-compose up -d
 ```
 docker-compose run chanllenge_php-app php artisan migrate
 ```
+
+## PROPOSTA DE MELHORIA DA ARQUITETURA
+1. Separar o wallet do usuario
+
+2. Separar o o tipo para uma categoria toda propria para o Vendedor
+
+3. Notificações sendo colocada em filas de processamento, assim não é preciso aguardar o retorno da api
+
+4. Vendedores podem transferir tambêm para os outros vendedores apenas
+
+5. Exigir uma foto da documentação, para confirmar a indentidade, com isso colocar um status aguardando confirmação dos dados
