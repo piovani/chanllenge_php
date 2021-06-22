@@ -11,6 +11,7 @@ use Carbon\Carbon;
  *
  * @property string $id
  * @property string $full_name
+ * @property string $document
  * @property string $email
  * @property string $password
  * @property Carbon $created_at

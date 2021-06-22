@@ -12,6 +12,7 @@ class TransferController extends Controller
         $data = $request->validated();
 
         [$res, $message] = call_user_func(new TransferBetweenUsers(), $data);
+
         $code = $res ? 200 : 404;
 
         return response()->json(['operation' => $res, 'message' => $message], $code);

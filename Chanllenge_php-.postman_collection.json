@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "e74c9eb9-bdeb-4bf5-9485-c62237e3ab6e",
+		"name": "Chanllenge_php\\",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "SHOW",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8005/api/user/6a888981-2752-49a1-8a47-a4ed7387cb8a",
+							"host": [
+								"localhost"
+							],
+							"port": "8005",
+							"path": [
+								"api",
+								"user",
+								"6a888981-2752-49a1-8a47-a4ed7387cb8a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"full_name\": \"Fulano2\",\n    \"document\": \"00011122\",\n    \"email\": \"ful2ano@beltrano1.com\",\n    \"password\": \"1234\",\n    \"type\": \"shoeeper\",\n    \"wallet\": 2.4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8005/api/user",
+							"host": [
+								"localhost"
+							],
+							"port": "8005",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"full_name\": \"ALTERADO\",\n    \"document\": \"00011122243\",\n    \"email\": \"fulano@beltrano.com\",\n    \"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8005/api/user/6a888981-2752-49a1-8a47-a4ed7387cb8a",
+							"host": [
+								"localhost"
+							],
+							"port": "8005",
+							"path": [
+								"api",
+								"user",
+								"6a888981-2752-49a1-8a47-a4ed7387cb8a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8005/api/user/6a888981-2752-49a1-8a47-a4ed7387cb8a",
+							"host": [
+								"localhost"
+							],
+							"port": "8005",
+							"path": [
+								"api",
+								"user",
+								"6a888981-2752-49a1-8a47-a4ed7387cb8a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
